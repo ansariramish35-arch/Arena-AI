@@ -1,39 +1,12 @@
-/* =========================================================
-   books.css : CSS style sheet applied directly to an XML file
-   Each XML element is styled with the "display" property,
-   which makes the XML tree look like a formatted page.
-   ========================================================= */
-
-catalogue {
-    display          : block;
-    background-color : #FFFFFF;
-    font-family      : "Times New Roman", serif;
-    margin           : 20px;
-}
-
-book {
-    display          : block;
-    border           : 2px solid #1F4E79;
-    border-radius    : 6px;
-    background-color : #F7F9FC;
-    padding          : 8px;
-    margin-bottom    : 12px;
-}
-
-title {
-    display     : block;
-    font-size   : 20px;
-    font-weight : bold;
-    color       : #1F4E79;
-}
-
-author, year, price {
-    display     : block;
-    font-size   : 16px;
-    color       : #333333;
-    margin-left : 15px;
-}
-
-price:before { content : "Price (Rs.) : "; font-weight:bold; }
-year:before  { content : "Year : ";       font-weight:bold; }
-author:before{ content : "Author : ";     font-weight:bold; }
+/* books.css : CSS style sheet applied directly to an XML file. Every element is
+styled with the "display" property, which makes the XML tree look like a page. */
+catalogue { display:block; background-color:#FFFFFF;
+font-family:"Times New Roman", serif; margin:20px; }
+book { display:block; border:2px solid #1F4E79; border-radius:6px;
+background-color:#F7F9FC; padding:8px; margin-bottom:12px; }
+title { display:block; font-size:20px; font-weight:bold; color:#1F4E79; }
+author, year, price { display:block; font-size:16px; color:#333333;
+margin-left:15px; }
+price:before { content:"Price (Rs.) : "; font-weight:bold; }
+year:before { content:"Year : "; font-weight:bold; }
+author:before { content:"Author : "; font-weight:bold; }

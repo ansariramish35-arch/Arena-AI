@@ -1,103 +1,91 @@
 <!DOCTYPE html>
-<!--
-    Practical 5 : Fix the HOT SPOTS on an image and show all the related
-                  information when a hot spot is CLICKED.
-    Here the information is shown on the SAME page (inside <div id="info">)
-    using JavaScript, so the image never reloads.
-    Keep hardware.png in the SAME folder as this file.
--->
-<html>
-<head>
-    <title>Image Hot Spots - Show Related Information</title>
-    <style>
-        body   { font-family:"Times New Roman"; margin:20px; background-color:#FFFFFF; }
-        h2     { color:#1F4E79; text-align:center; }
-        .wrap  { text-align:center; }
-        #info  { width:520px; margin:12px auto; padding:12px; text-align:left;
-                 border:2px solid #1F4E79; background-color:#F7F9FC; min-height:96px; }
-        #info h3 { margin:0 0 6px 0; color:#1F4E79; }
-        table  { border-collapse:collapse; width:100%; }
-        th,td  { border:1px solid #999999; padding:4px 8px; font-size:14px; }
-        th     { background-color:#D9E1F2; }
-    </style>
+<!--Practical 5 : Fix HOT SPOTS on an image and show all
+the
+related
+information
+when a hot spot is clicked. showInfo() prints
+it
+in <div
+id="info"> without
+reloading the page. Keep hardware.png
+in
+the same
+folder. --> <html><head><title>Image Hot Spots - Show Related
+Information </title>
+<style>
+body { font-family:"Times New Roman"; margin:20px; background-color:#FFFFFF; }
+h2 { color:#1F4E79; text-align:center; }
+.wrap { text-align:center; }
+#info { width:520px; margin:12px auto; padding:12px; text-align:left;
+border:2px solid #1F4E79; background-color:#F7F9FC; min-height:96px; }
+#info h3 { margin:0 0 6px 0; color:#1F4E79; }
+table { border-collapse:collapse; width:100%; }
+th,td { border:1px solid #999999; padding:4px 8px; font-size:14px; }
+th { background-color:#D9E1F2; }
+</style>
 </head>
-
-<body>
-
-    <h2>COMPUTER HARDWARE - CLICK A HOT SPOT</h2>
-
-    <div class="wrap">
-        <!-- image + map : three hot spots are fixed on this image -->
-        <img src="hardware.png" width="520" height="300" border="0"
-             alt="Computer hardware" usemap="#hwmap">
-
-        <map name="hwmap">
-            <!-- Each area calls showInfo() and passes the name of the part -->
-            <area shape="rect" coords="15,20,205,150"
-                  href="javascript:void(0);" onclick="showInfo('monitor')"
-                  alt="Monitor" title="Click for Monitor details">
-
-            <area shape="rect" coords="215,20,375,190"
-                  href="javascript:void(0);" onclick="showInfo('cpu')"
-                  alt="CPU" title="Click for CPU details">
-
-            <area shape="poly" coords="90,215,430,215,455,285,65,285"
-                  href="javascript:void(0);" onclick="showInfo('keyboard')"
-                  alt="Keyboard" title="Click for Keyboard details">
-        </map>
-    </div>
-
-    <!-- Related information is printed inside this box -->
-    <div id="info">
-        <h3>Information</h3>
-        <p>Click on the <b>Monitor</b>, <b>CPU</b> or <b>Keyboard</b> hot spot
-           in the image above to see its details here.</p>
-    </div>
-
-    <script>
-        /* ---------------------------------------------------------
-           All the related information is stored in one JS object.
-           showInfo(part) is called when a hot spot is clicked.
-           --------------------------------------------------------- */
-        var data = {
-            monitor: {
-                name: "MONITOR (VDU)",
-                text: "The monitor is the output device of a computer. It displays "
-                    + "text, images and video produced by the graphics card.",
-                rows: [["Type", "Output device"],
-                       ["Examples", "LCD, LED, CRT, OLED"],
-                       ["Measured in", "Inches (screen size), Pixels (resolution)"]]
-            },
-            cpu: {
-                name: "CPU (Central Processing Unit)",
-                text: "The CPU is called the brain of the computer. It performs all "
-                    + "arithmetic and logical operations on the data.",
-                rows: [["Type", "Processing device"],
-                       ["Main parts", "ALU, Control Unit, Memory Unit"],
-                       ["Examples", "Intel Core i5, AMD Ryzen 5"]]
-            },
-            keyboard: {
-                name: "KEYBOARD",
-                text: "The keyboard is the most common input device. It is used to "
-                    + "type text, numbers and commands into the computer.",
-                rows: [["Type", "Input device"],
-                       ["Standard keys", "101 / 104 keys"],
-                       ["Groups", "Alphabet, Numeric, Function, Control keys"]]
-            }
-        };
-
-        function showInfo(part) {
-            var d = data[part];
-            var html = "<h3>" + d.name + "</h3><p>" + d.text + "</p>";
-            html += "<table><tr><th>Property</th><th>Detail</th></tr>";
-            for (var i = 0; i < d.rows.length; i++) {
-                html += "<tr><td><b>" + d.rows[i][0] + "</b></td><td>"
-                      + d.rows[i][1] + "</td></tr>";
-            }
-            html += "</table>";
-            document.getElementById("info").innerHTML = html;
-        }
-    </script>
-
+<body><h2>COMPUTER HARDWARE - CLICK A HOT SPOT</h2>
+<div class="wrap">
+<img src="hardware.png" width="520"
+height="300"
+border="0"
+alt="Computer hardware" usemap="#hwmap">
+<map name="hwmap">
+<area
+shape="rect"
+coords="15,20,205,150"
+href="javascript:void(0);"
+onclick="showInfo('monitor')"
+alt="Monitor"
+title="Click for Monitor details">
+<area
+shape="rect"
+coords="215,20,375,190"
+href="javascript:void(0);"
+onclick="showInfo('cpu')"
+alt="CPU"
+title="Click for CPU details">
+<area
+shape="poly"
+coords="90,215,430,215,455,285,65,285"
+href="javascript:void(0);"
+onclick="showInfo('keyboard')"
+alt="Keyboard"
+title="Click for Keyboard details">
+</map>
+</div>
+<div id="info"><h3>Information</h3>
+<p>Click on the <b>Monitor</b>, <b>CPU</b> or <b>Keyboard</b> hot spot in the
+image above to see its details here.</p>
+</div>
+<script>
+/* All the related information is stored in one object; showInfo(part) prints it */
+var data = {
+monitor: { name: "MONITOR (VDU)",
+text: "The monitor is the output device of a computer. It displays text, " +
+"images and video produced by the graphics card.",
+rows: [["Type", "Output device"], ["Examples", "LCD, LED, CRT, OLED"],
+["Measured in", "Inches (screen size), Pixels (resolution)"]] },
+cpu: { name: "CPU (Central Processing Unit)",
+text: "The CPU is called the brain of the computer. It performs all " +
+"arithmetic and logical operations on the data.",
+rows: [["Type", "Processing device"], ["Main parts", "ALU, Control Unit, Memory Unit"],
+["Examples", "Intel Core i5, AMD Ryzen 5"]] },
+keyboard: { name: "KEYBOARD",
+text: "The keyboard is the most common input device. It is used to type " +
+"text, numbers and commands into the computer.",
+rows: [["Type", "Input device"], ["Standard keys", "101 / 104 keys"],
+["Groups", "Alphabet, Numeric, Function, Control keys"]] }
+};
+function showInfo(part) {
+var d = data[part], html = "<h3>" + d.name + "</h3><p>" + d.text + "</p>";
+html += "<table><tr><th>Property</th><th>Detail</th></tr>";
+for (var i = 0; i < d.rows.length; i++) {
+html += "<tr><td><b>" + d.rows[i][0] + "</b></td><td>" + d.rows[i][1] + "</td></tr>";
+}
+html += "</table>";
+document.getElementById("info").innerHTML = html;
+}
+</script>
 </body>
 </html>

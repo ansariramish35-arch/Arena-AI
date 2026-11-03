@@ -1,92 +1,70 @@
 <!DOCTYPE html>
-<!--
-    Practical 8 : HTML / JavaScript to display your CV in a navigator,
-                  your institute website, department website and a tutorial
-                  website for a specific subject.
-
-    The drop-down list works as a NAVIGATOR. JavaScript takes the selected
-    URL and opens it inside the iframe named "viewer". The buttons do the
-    same job for the four fixed links.
--->
-<html>
-<head>
-    <title>Web Navigator - CV, Institute, Department, Tutorial</title>
-    <style>
-        body   { font-family:"Times New Roman"; margin:0; }
-        .top   { background-color:#1F4E79; color:#FFFFFF; padding:8px;
-                 text-align:center; font-size:20px; font-weight:bold; }
-        .bar   { background-color:#D9E1F2; padding:8px; text-align:center; }
-        select, button { font-family:Verdana; font-size:13px; padding:3px; }
-        iframe { width:100%; height:520px; border:2px solid #1F4E79; }
-        #msg   { text-align:center; font-size:14px; color:#990000; padding:4px; }
-    </style>
+<!--Practical 8 : HTML / JavaScript to display your CV in
+a
+navigator,
+your
+institute website, department website and a
+tutorial
+website. The
+drop-down list
+works as a NAVIGATOR : JavaScript
+opens
+the selected
+URL in the iframe "viewer".
+Replace the three
+sample URLs
+with your
+own institute addresses. --> <html><head><title>Web
+Navigator - CV, Institute, Department, Tutorial</title>
+<style>
+body { font-family:"Times New Roman"; margin:0; }
+.top { background-color:#1F4E79; color:#FFFFFF; padding:8px; text-align:center;
+font-size:20px; font-weight:bold; }
+.bar { background-color:#D9E1F2; padding:8px; text-align:center; }
+select, button { font-family:Verdana; font-size:13px; padding:3px; }
+iframe { width:100%; height:520px; border:2px solid #1F4E79; }
+#msg { text-align:center; font-size:14px; color:#990000; padding:4px; }
+</style>
 </head>
-
-<body>
-
-    <div class="top">WEB NAVIGATOR</div>
-
-    <div class="bar">
-        <!-- ============ NAVIGATOR (drop-down list) ============ -->
-        <select id="siteList">
-            <option value="">-- Select a website --</option>
-            <option value="cv.html">My CV (Resume)</option>
-            <option value="https://www.youruniversity.ac.in">Institute Website</option>
-            <option value="https://www.yourcollege.ac.in/cse">Department Website (CSE)</option>
-            <option value="https://www.w3schools.com/html/">Tutorial Website - Web Technology</option>
-        </select>
-
-        <button onclick="navigate()">GO</button>
-
-        <!-- ============ FIXED BUTTONS ============ -->
-        <button onclick="openSite('cv.html')">My CV</button>
-        <button onclick="openSite('https://www.youruniversity.ac.in')">Institute</button>
-        <button onclick="openSite('https://www.yourcollege.ac.in/cse')">Department</button>
-        <button onclick="openSite('https://www.w3schools.com/html/')">Tutorial</button>
-
-        <button onclick="openNewTab()">Open in NEW Tab</button>
-        <button onclick="goBack()">Back</button>
-        <button onclick="goForward()">Forward</button>
-    </div>
-
-    <div id="msg">Select a website from the list and press GO.</div>
-
-    <!-- The selected page is displayed inside this frame -->
-    <iframe name="viewer" id="viewer" src="cv.html"></iframe>
-
-    <script>
-        /* NOTE for the student :
-           Replace the three URLs below with the real addresses of your own
-           institute, your own department and the tutorial website you use.  */
-
-        function navigate() {
-            var list = document.getElementById("siteList");
-            var url  = list.value;
-
-            if (url === "") {
-                document.getElementById("msg").innerHTML =
-                    "Please select a website first.";
-                return;
-            }
-            /* open the selected page inside the iframe named "viewer" */
-            window.open(url, "viewer");
-            document.getElementById("msg").innerHTML = "Now showing : " + url;
-        }
-
-        function openSite(url) {
-            window.open(url, "viewer");
-            document.getElementById("msg").innerHTML = "Now showing : " + url;
-        }
-
-        function openNewTab() {
-            var url = document.getElementById("siteList").value;
-            if (url !== "") { window.open(url, "_blank"); }
-        }
-
-        /* Navigator buttons for the iframe history */
-        function goBack()    { window.frames["viewer"].history.back();    }
-        function goForward() { window.frames["viewer"].history.forward(); }
-    </script>
-
+<body><div class="top">WEB NAVIGATOR</div>
+<div class="bar"><select id="siteList"><option value="">-- Select a website --
+</option> <option value="cv.html">My CV (Resume)</option>
+<option value="https://www.youruniversity.ac.in">Institute Website</option>
+<option value="https://www.yourcollege.ac.in/cse">Department Website (CSE)
+</option> <option value="https://www.w3schools.com/html/">Tutorial Website -
+Web Technology</option></select>
+<button onclick="navigate()">GO</button>
+<button onclick="openSite('cv.html')">My CV</button>
+<button onclick="openSite('https://www.youruniversity.ac.in')">Institute
+</button> <button onclick="openSite('https://www.yourcollege.ac.in/cse')">
+Department</button>
+<button onclick="openSite('https://www.w3schools.com/html/')">Tutorial
+</button> <button onclick="openNewTab()">Open in NEW Tab</button>
+<button onclick="goBack()">Back</button> <button onclick="goForward()">Forward
+</button></div>
+<div id="msg">Select a website from the list and press GO.</div>
+<iframe name="viewer" id="viewer" src="cv.html"></iframe>
+<script>
+function navigate() {
+var url = document.getElementById("siteList").value;
+if (url === "") {
+document.getElementById("msg").innerHTML = "Please select a website first.";
+return;
+}
+window.open(url, "viewer");
+document.getElementById("msg").innerHTML = "Now showing : " + url;
+}
+function openSite(url) {
+window.open(url, "viewer");
+document.getElementById("msg").innerHTML = "Now showing : " + url;
+}
+function openNewTab() {
+var url = document.getElementById("siteList").value;
+if (url !== "") { window.open(url, "_blank"); }
+}
+/* navigator buttons for the history of the iframe */
+function goBack() { window.frames["viewer"].history.back(); }
+function goForward() { window.frames["viewer"].history.forward(); }
+</script>
 </body>
 </html>

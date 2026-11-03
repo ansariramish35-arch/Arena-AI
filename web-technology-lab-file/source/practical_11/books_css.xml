@@ -1,38 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Same data, but this time the style sheet is a CSS file.
-     CSS can only change the LOOK of the existing XML tree - it cannot
-     change the structure or the order of the elements (XSL can). -->
+<!-- Same data, but this time the style sheet is a CSS file. CSS can only change
+the LOOK of the XML tree - it cannot change the structure or the order of the
+elements (XSL can). -->
 <?xml-stylesheet type="text/css" href="books.css"?>
-
 <catalogue>
-    <book category="Programming">
-        <title>Web Technology</title>
-        <author>A. K. Sharma</author>
-        <year>2021</year>
-        <price>350</price>
-    </book>
-    <book category="Programming">
-        <title>Learning XML</title>
-        <author>Erik Ray</author>
-        <year>2005</year>
-        <price>290</price>
-    </book>
-    <book category="Database">
-        <title>SQL Complete Reference</title>
-        <author>R. K. Verma</author>
-        <year>2019</year>
-        <price>480</price>
-    </book>
-    <book category="Programming">
-        <title>JavaScript for Beginners</title>
-        <author>S. Gupta</author>
-        <year>2022</year>
-        <price>199</price>
-    </book>
-    <book category="Network">
-        <title>Computer Networks</title>
-        <author>P. Singh</author>
-        <year>2018</year>
-        <price>520</price>
-    </book>
+<book category="Programming"><title>Web Technology</title>
+<author>A. K. Sharma</author><year>2021</year><price>350</price></book>
+<book category="Programming"><title>Learning XML</title>
+<author>Erik Ray</author><year>2005</year><price>290</price></book>
+<book category="Database"><title>SQL Complete Reference</title>
+<author>R. K. Verma</author><year>2019</year><price>480</price></book>
+<book category="Programming"><title>JavaScript for Beginners</title>
+<author>S. Gupta</author><year>2022</year><price>199</price></book>
+<book category="Network"><title>Computer Networks</title>
+<author>P. Singh</author><year>2018</year><price>520</price></book>
 </catalogue>

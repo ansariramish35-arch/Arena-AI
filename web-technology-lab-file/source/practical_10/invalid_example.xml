@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- =========================================================
-     This file is INTENTIONALLY WRONG. It breaks two rules of the
-     DTD, so a validating parser reports errors :
-       (1) the REQUIRED attribute "id" is missing
-       (2) <email> is written before <course> (wrong order)
-     Use it to show how the DTD enforces the rules.
-     ========================================================== -->
+<!-- This file is INTENTIONALLY WRONG : it breaks two rules of the DTD, so a
+validating parser reports errors. (1) the REQUIRED attribute "id" is missing and
+(2) <email> is written before <course> (wrong order). -->
 <!DOCTYPE students SYSTEM "rules.dtd">
-
 <students>
-    <student>
-        <name>Wrong Student</name>
-        <rollno>CSE2999</rollno>
-        <email>wrong@college.ac.in</email>
-        <course>B.Tech (CSE)</course>
-        <semester>V</semester>
-    </student>
+<student><name>Wrong Student</name><rollno>CSE2999</rollno>
+<email>wrong@college.ac.in</email><course>B.Tech (CSE)</course>
+<semester>V</semester>
+</student>
 </students>

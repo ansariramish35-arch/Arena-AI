@@ -1,31 +1,17 @@
-<!-- =========================================================
-     rules.dtd  :  EXTERNAL DTD FILE
-     It contains exactly the same set of rules as the internal
-     DTD, but it is kept in a separate file so that many XML
-     documents can share the same rules.
-     NOTE : a .dtd file must NOT start with an <?xml ... ?>
-            declaration - only the rules are written here.
-     ========================================================== -->
-
+<!-- rules.dtd : EXTERNAL DTD FILE. Same rules as the internal DTD, but kept in a
+separate file so that many XML documents can share them. A .dtd file must NOT
+start with an <?xml ... ?> declaration - only the rules are written here. -->
 <!ELEMENT students (student+)>
-
 <!ELEMENT student (name, rollno, course, semester, email, address?)>
-
-<!ATTLIST student
-    id      ID      #REQUIRED
-    type    (regular | lateral)  "regular"
-    active  (yes | no)           #IMPLIED
->
-
-<!ELEMENT name     (#PCDATA)>
-<!ELEMENT rollno   (#PCDATA)>
-<!ELEMENT course   (#PCDATA)>
+<!ATTLIST student id ID #REQUIRED type (regular | lateral) "regular"
+active (yes | no) #IMPLIED>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT rollno (#PCDATA)>
+<!ELEMENT course (#PCDATA)>
 <!ELEMENT semester (#PCDATA)>
-<!ELEMENT email    (#PCDATA)>
-
+<!ELEMENT email (#PCDATA)>
 <!ELEMENT address (city, state, pin)>
-<!ELEMENT city    (#PCDATA)>
-<!ELEMENT state   (#PCDATA)>
-<!ELEMENT pin     (#PCDATA)>
-
+<!ELEMENT city (#PCDATA)>
+<!ELEMENT state (#PCDATA)>
+<!ELEMENT pin (#PCDATA)>
 <!ENTITY college "Name of the College">

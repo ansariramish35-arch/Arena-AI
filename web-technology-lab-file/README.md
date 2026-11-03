@@ -9,7 +9,7 @@ complete source code and output screenshots.
 | File | Description |
 |---|---|
 | `Web_Technology_Laboratory_File.docx` | Editable Microsoft Word file (A4, Times New Roman 12 pt, code in Courier New 10 pt, page numbers at the bottom) |
-| `Web_Technology_Laboratory_File.pdf` | Matching PDF of the same document (50 pages) |
+| `Web_Technology_Laboratory_File.pdf` | Matching PDF of the same document (39 pages) |
 
 Both files contain, in order:
 
@@ -25,6 +25,12 @@ Both files contain, in order:
 `source/practical_01 … practical_11` hold the exact programs printed in the file.
 Open the listed `.html` / `.xml` files in any browser (keep the accompanying
 `.png`, `.css`, `.xsl`, `.dtd` files in the same folder).
+
+The programs are written in **compact form** so that the file stays short: no
+blank lines, no indentation, one HTML row per line and every line filled up to
+the 78 columns the document prints. Only the layout of the source was changed –
+the tags, attributes, text, CSS rules and JavaScript logic are exactly the same,
+so the output is identical (verified against the originals before compressing).
 
 The XML work was checked with a validating parser (libxml2):
 

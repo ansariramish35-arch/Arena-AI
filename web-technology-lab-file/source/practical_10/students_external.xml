@@ -1,29 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- =========================================================
-     This XML document uses the EXTERNAL DTD file "rules.dtd".
-     The SYSTEM keyword tells the parser where the rule file is.
-     ========================================================== -->
+<!-- This document uses the EXTERNAL DTD file "rules.dtd"; the SYSTEM keyword
+tells the parser where the rule file is. -->
 <!DOCTYPE students SYSTEM "rules.dtd">
-
 <students>
-    <student id="S11" type="regular" active="yes">
-        <name>Student Name Four</name>
-        <rollno>CSE2104</rollno>
-        <course>B.Tech (Computer Science &amp; Engineering)</course>
-        <semester>V</semester>
-        <email>student4@college.ac.in</email>
-        <address>
-            <city>Delhi</city>
-            <state>Delhi</state>
-            <pin>110001</pin>
-        </address>
-    </student>
-
-    <student id="S12">
-        <name>Student Name Five</name>
-        <rollno>CSE2105</rollno>
-        <course>B.Tech (Information Technology)</course>
-        <semester>V</semester>
-        <email>student5@college.ac.in</email>
-    </student>
+<student id="S11" type="regular" active="yes"><name>Student Name Four</name>
+<rollno>CSE2104</rollno><course>B.Tech (Computer Science &amp; Engineering)</course>
+<semester>V</semester><email>student4@college.ac.in</email>
+<address><city>Delhi</city><state>Delhi</state><pin>110001</pin></address>
+</student>
+<student id="S12"><name>Student Name Five</name>
+<rollno>CSE2105</rollno><course>B.Tech (Information Technology)</course>
+<semester>V</semester><email>student5@college.ac.in</email>
+</student>
 </students>
