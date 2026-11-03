@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Map Example</title>
+</head>
+<body>
+  <h2>Campus Map - Image Map</h2>
+  <p>Click on any building on the map:</p>
+
+  <!-- Image with an embedded client-side image map -->
+  <img src="campus-map.jpg" alt="Campus map" width="600" height="400"
+       usemap="#campusmap">
+
+  <map name="campusmap">
+    <area shape="rect" coords="20,40,180,160"
+          href="#library" alt="Library" title="Library">
+    <area shape="rect" coords="200,40,380,160"
+          href="#labs" alt="Computer Labs" title="Computer Labs">
+    <area shape="rect" coords="400,40,580,160"
+          href="#canteen" alt="Canteen" title="Canteen">
+    <area shape="rect" coords="20,180,290,300"
+          href="#auditorium" alt="Auditorium" title="Auditorium">
+    <area shape="rect" coords="310,180,580,300"
+          href="#sports" alt="Sports Ground" title="Sports Ground">
+    <area shape="default" href="#top" alt="Campus">
+  </map>
+
+  <hr>
+  <h3 id="library">Library</h3>
+  <p>Central library with reading halls and issue counter.</p>
+  <h3 id="labs">Computer Labs</h3>
+  <p>Departmental labs with internet facility.</p>
+  <h3 id="canteen">Canteen</h3>
+  <p>Student canteen.</p>
+  <h3 id="auditorium">Auditorium</h3>
+  <p>Seminar and event hall.</p>
+  <h3 id="sports">Sports Ground</h3>
+  <p>Cricket and football ground.</p>
+</body>
+</html>

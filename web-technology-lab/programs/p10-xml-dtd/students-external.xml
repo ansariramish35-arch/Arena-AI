@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- XML document validated against the EXTERNAL DTD file -->
+<!DOCTYPE students SYSTEM "students-external.dtd">
+<students>
+  <student id="S101">
+    <name>Ananya Sharma</name>
+    <roll>2301234</roll>
+    <course>B.Tech CSE</course>
+    <marks>88</marks>
+  </student>
+  <student id="S102">
+    <name>Rahul Verma</name>
+    <roll>2301235</roll>
+    <course>B.Tech CSE</course>
+    <marks>76</marks>
+  </student>
+</students>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Coordinates with JavaScript</title>
+  <script>
+    // Display the x, y coordinates of the clicked point on the image.
+    function getCoords(event) {
+      var x, y;
+      if (event.offsetX !== undefined) {
+        x = event.offsetX;
+        y = event.offsetY;
+      } else {                       // fallback for older browsers
+        var rect = event.target.getBoundingClientRect();
+        x = Math.round(event.clientX - rect.left);
+        y = Math.round(event.clientY - rect.top);
+      }
+      document.getElementById("x").value = x;
+      document.getElementById("y").value = y;
+      document.getElementById("msg").innerHTML =
+        "You clicked at coordinates (" + x + ", " + y + ")";
+    }
+  </script>
+</head>
+<body>
+  <h2>Click on the image to get its coordinates</h2>
+
+  <img src="lab-map.jpg" alt="Lab map" width="500" height="350"
+       onclick="getCoords(event)" style="cursor:crosshair;">
+
+  <p>
+    X coordinate: <input type="text" id="x" size="6" readonly>
+    Y coordinate: <input type="text" id="y" size="6" readonly>
+  </p>
+  <p id="msg" style="color:#1f3864; font-weight:bold;"></p>
+</body>
+</html>
