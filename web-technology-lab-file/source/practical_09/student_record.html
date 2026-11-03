@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<!--
+    Practical 9 : HTML form for keeping STUDENT RECORD and VALIDATING it
+                  using JavaScript.
+    Validation is done in the function validateForm(), which is called by the
+    onsubmit event of the form. If any check fails, the form is NOT submitted
+    (return false) and an error message is shown next to the field.
+-->
+<html>
+<head>
+    <title>Student Record - JavaScript Validation</title>
+    <style>
+        body   { font-family:"Times New Roman"; margin:20px; background-color:#FFFFFF; }
+        h2     { text-align:center; color:#1F4E79; }
+        form   { width:600px; margin:auto; border:2px solid #1F4E79;
+                 padding:15px; background-color:#F7F9FC; }
+        table  { width:100%; }
+        td     { padding:6px; font-size:16px; }
+        .lbl   { width:200px; font-weight:bold; }
+        input[type=text], input[type=password], input[type=email], select, textarea {
+                 font-family:"Times New Roman"; font-size:15px; padding:3px; }
+        .err   { color:#CC0000; font-size:13px; font-weight:bold; }
+        .btn   { text-align:center; padding-top:10px; }
+        button { font-size:15px; padding:5px 18px; }
+    </style>
+</head>
+
+<body>
+
+    <h2>STUDENT RECORD FORM (with JavaScript Validation)</h2>
+
+    <form name="studentForm" onsubmit="return validateForm()">
+
+        <table>
+            <tr>
+                <td class="lbl">Student Name * :</td>
+                <td>
+                    <input type="text" name="sname" id="sname" size="28">
+                    <span class="err" id="e_sname"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="lbl">Roll Number * :</td>
+                <td>
+                    <input type="text" name="roll" id="roll" size="28"
+                           placeholder="e.g. CSE2101">
+                    <span class="err" id="e_roll"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="lbl">Enrollment Number * :</td>
+                <td>
+                    <input type="text" name="enroll" id="enroll" size="28"
+                           placeholder="12 digits">
+                    <span class="err" id="e_enroll"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="lbl">E-Mail * :</td>
+                <td>
+                    <input type="text" name="email" id="email" size="28">
+                    <span class="err" id="e_email"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="lbl">Mobile Number * :</td>
+                <td>
+                    <input type="text" name="mobile" id="mobile" size="28"
+                           placeholder="10 digits, starts with 6-9">
+                    <span class="err" id="e_mobile"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="lbl">Password * :</td>
+                <td>
+                    <input type="password" name="pwd" id="pwd" size="28">
+                    <span class="err" id="e_pwd"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="lbl">Confirm Password * :</td>
+                <td>
+                    <input type="password" name="cpwd" id="cpwd" size="28">
+                    <span class="err" id="e_cpwd"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="lbl">Date of Birth * :</td>
+                <td>
+                    <input type="text" name="dob" id="dob" size="28"
+                           placeholder="DD/MM/YYYY">
+                    <span class="err" id="e_dob"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="lbl">Gender * :</td>
+                <td>
+                    <input type="radio" name="gender" value="Male"> Male
+                    <input type="radio" name="gender" value="Female"> Female
+                    <span class="err" id="e_gender"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="lbl">Course * :</td>
+                <td>
+                    <select name="course" id="course">
+                        <option value="">-- Select --</option>
+                        <option value="B.Tech CSE">B.Tech (CSE)</option>
+                        <option value="B.Tech IT">B.Tech (IT)</option>
+                        <option value="MCA">MCA</option>
+                    </select>
+                    <span class="err" id="e_course"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="lbl">Semester * :</td>
+                <td>
+                    <select name="sem" id="sem">
+                        <option value="">-- Select --</option>
+                        <option>I</option><option>II</option><option>III</option>
+                        <option>IV</option><option>V</option><option>VI</option>
+                        <option>VII</option><option>VIII</option>
+                    </select>
+                    <span class="err" id="e_sem"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="lbl">Address :</td>
+                <td><textarea name="addr" id="addr" rows="3" cols="26"></textarea></td>
+            </tr>
+
+            <tr>
+                <td class="lbl">Hobbies :</td>
+                <td>
+                    <input type="checkbox" name="hobby" value="Reading"> Reading
+                    <input type="checkbox" name="hobby" value="Sports"> Sports
+                    <input type="checkbox" name="hobby" value="Music"> Music
+                </td>
+            </tr>
+
+            <tr>
+                <td class="lbl">I accept the rules * :</td>
+                <td>
+                    <input type="checkbox" name="agree" id="agree" value="yes">
+                    <span class="err" id="e_agree"></span>
+                </td>
+            </tr>
+        </table>
+
+        <div class="btn">
+            <button type="submit">Save Record</button>
+            <button type="reset" onclick="clearErrors()">Reset</button>
+        </div>
+    </form>
+
+    <script>
+        /* ---------- small helper : show / clear an error message ---------- */
+        function setError(id, message) {
+            document.getElementById("e_" + id).innerHTML = message;
+        }
+        function clearErrors() {
+            var spans = document.getElementsByTagName("span");
+            for (var i = 0; i < spans.length; i++) { spans[i].innerHTML = ""; }
+        }
+        /* remove spaces from both ends */
+        function trim(s) { return s.replace(/^\s+|\s+$/g, ""); }
+
+        /* ================== MAIN VALIDATION FUNCTION ================== */
+        function validateForm() {
+            clearErrors();
+            var ok = true;
+
+            /* 1. Student name : required, letters and spaces only, min 3 */
+            var name = trim(document.getElementById("sname").value);
+            if (name === "") {
+                setError("sname", "Name is required."); ok = false;
+            } else if (!/^[A-Za-z .]{3,30}$/.test(name)) {
+                setError("sname", "Only letters, min 3 characters."); ok = false;
+            }
+
+            /* 2. Roll number : required, letters + digits, 4 to 12 chars */
+            var roll = trim(document.getElementById("roll").value);
+            if (roll === "") {
+                setError("roll", "Roll number is required."); ok = false;
+            } else if (!/^[A-Za-z0-9]{4,12}$/.test(roll)) {
+                setError("roll", "4-12 letters/digits only."); ok = false;
+            }
+
+            /* 3. Enrollment number : exactly 12 digits */
+            var enroll = trim(document.getElementById("enroll").value);
+            if (enroll === "") {
+                setError("enroll", "Enrollment number is required."); ok = false;
+            } else if (!/^[0-9]{12}$/.test(enroll)) {
+                setError("enroll", "Must be exactly 12 digits."); ok = false;
+            }
+
+            /* 4. E-mail : standard pattern */
+            var email = trim(document.getElementById("email").value);
+            var emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+            if (email === "") {
+                setError("email", "E-mail is required."); ok = false;
+            } else if (!emailPattern.test(email)) {
+                setError("email", "Invalid e-mail address."); ok = false;
+            }
+
+            /* 5. Mobile : exactly 10 digits, first digit 6-9 */
+            var mobile = trim(document.getElementById("mobile").value);
+            if (mobile === "") {
+                setError("mobile", "Mobile number is required."); ok = false;
+            } else if (!/^[6-9][0-9]{9}$/.test(mobile)) {
+                setError("mobile", "10 digits, must start with 6-9."); ok = false;
+            }
+
+            /* 6. Password : minimum 6 characters */
+            var pwd = document.getElementById("pwd").value;
+            if (pwd === "") {
+                setError("pwd", "Password is required."); ok = false;
+            } else if (pwd.length < 6) {
+                setError("pwd", "Minimum 6 characters."); ok = false;
+            }
+
+            /* 7. Confirm password : must match */
+            var cpwd = document.getElementById("cpwd").value;
+            if (cpwd !== pwd) {
+                setError("cpwd", "Passwords do not match."); ok = false;
+            }
+
+            /* 8. Date of birth : DD/MM/YYYY and a real date */
+            var dob = trim(document.getElementById("dob").value);
+            if (dob === "") {
+                setError("dob", "Date of birth is required."); ok = false;
+            } else if (!/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)[0-9]{2}$/.test(dob)) {
+                setError("dob", "Use the format DD/MM/YYYY."); ok = false;
+            } else {
+                var parts = dob.split("/");
+                var day = parseInt(parts[0], 10), mon = parseInt(parts[1], 10),
+                    yr  = parseInt(parts[2], 10);
+                var daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
+                if ((yr % 4 === 0 && yr % 100 !== 0) || yr % 400 === 0) {
+                    daysInMonth[1] = 29;      /* leap year */
+                }
+                if (day > daysInMonth[mon - 1]) {
+                    setError("dob", "This date does not exist."); ok = false;
+                }
+            }
+
+            /* 9. Gender : one radio button must be selected */
+            var gender = document.getElementsByName("gender");
+            var gSelected = false;
+            for (var i = 0; i < gender.length; i++) {
+                if (gender[i].checked) { gSelected = true; }
+            }
+            if (!gSelected) {
+                setError("gender", "Please select gender."); ok = false;
+            }
+
+            /* 10. Course and Semester : must not be the blank option */
+            if (document.getElementById("course").value === "") {
+                setError("course", "Select a course."); ok = false;
+            }
+            if (document.getElementById("sem").value === "") {
+                setError("sem", "Select a semester."); ok = false;
+            }
+
+            /* 11. Terms check-box must be ticked */
+            if (!document.getElementById("agree").checked) {
+                setError("agree", "You must accept the rules."); ok = false;
+            }
+
+            /* ---------- result ---------- */
+            if (ok) {
+                alert("Record saved successfully!\n\nName : " + name +
+                      "\nRoll No. : " + roll +
+                      "\nE-Mail : " + email +
+                      "\nMobile : " + mobile);
+                return true;      /* allow the form to be submitted */
+            } else {
+                alert("Please correct the highlighted fields.");
+                return false;     /* stop the form from being submitted */
+            }
+        }
+    </script>
+
+</body>
+</html>

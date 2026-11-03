@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!-- Practical 1 : HTML program to create a Resume using TABLES -->
+<html>
+<head>
+    <title>Resume - Table Layout</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+    <!-- ============ MAIN RESUME TABLE ============ -->
+    <table width="700" border="1" cellspacing="0" cellpadding="8" align="center" bordercolor="#000000">
+
+        <!-- Row 1 : Name and Contact Details -->
+        <tr>
+            <td align="center" bgcolor="#D9E1F2" colspan="2">
+                <font face="Verdana" size="6"><b>YOUR NAME</b></font><br>
+                <font face="Verdana" size="2">
+                    123, Street Name, City, State - 226001<br>
+                    Mobile : +91-98XXXXXXXX &nbsp;|&nbsp; Email : yourname@email.com
+                </font>
+            </td>
+        </tr>
+
+        <!-- Row 2 : Career Objective -->
+        <tr>
+            <td width="160" bgcolor="#F2F2F2"><b>CAREER OBJECTIVE</b></td>
+            <td>
+                To work in a challenging environment where I can use my technical
+                skills and knowledge for the growth of the organisation, and to
+                keep learning new web technologies.
+            </td>
+        </tr>
+
+        <!-- Row 3 : Educational Qualification (nested table) -->
+        <tr>
+            <td bgcolor="#F2F2F2"><b>EDUCATIONAL<br>QUALIFICATION</b></td>
+            <td>
+                <table width="100%" border="1" cellspacing="0" cellpadding="5">
+                    <tr bgcolor="#D9E1F2">
+                        <th>Course / Degree</th>
+                        <th>School / University</th>
+                        <th>Year</th>
+                        <th>Percentage</th>
+                    </tr>
+                    <tr>
+                        <td>B.Tech (CSE)</td>
+                        <td>Name of University</td>
+                        <td>20XX</td>
+                        <td>XX.X %</td>
+                    </tr>
+                    <tr>
+                        <td>Intermediate (12th)</td>
+                        <td>Name of Board / College</td>
+                        <td>20XX</td>
+                        <td>XX.X %</td>
+                    </tr>
+                    <tr>
+                        <td>High School (10th)</td>
+                        <td>Name of Board / School</td>
+                        <td>20XX</td>
+                        <td>XX.X %</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <!-- Row 4 : Technical Skills -->
+        <tr>
+            <td bgcolor="#F2F2F2"><b>TECHNICAL SKILLS</b></td>
+            <td>
+                <table width="100%" border="1" cellspacing="0" cellpadding="5">
+                    <tr>
+                        <td width="180"><b>Languages</b></td>
+                        <td>C, C++, Java, Python</td>
+                    </tr>
+                    <tr>
+                        <td><b>Web Technologies</b></td>
+                        <td>HTML, CSS, JavaScript, XML</td>
+                    </tr>
+                    <tr>
+                        <td><b>Databases</b></td>
+                        <td>MySQL, Oracle</td>
+                    </tr>
+                    <tr>
+                        <td><b>Operating Systems</b></td>
+                        <td>Windows, Linux (Ubuntu)</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <!-- Row 5 : Projects -->
+        <tr>
+            <td bgcolor="#F2F2F2"><b>PROJECTS</b></td>
+            <td>
+                <ol>
+                    <li><b>Student Record System</b> - HTML form with JavaScript validation.</li>
+                    <li><b>College Home Page</b> - designed using HTML frames and CSS.</li>
+                </ol>
+            </td>
+        </tr>
+
+        <!-- Row 6 : Personal Details (two columns) -->
+        <tr>
+            <td bgcolor="#F2F2F2"><b>PERSONAL DETAILS</b></td>
+            <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                    <tr>
+                        <td width="150"><b>Father's Name</b></td>
+                        <td>: ____________________</td>
+                    </tr>
+                    <tr>
+                        <td><b>Date of Birth</b></td>
+                        <td>: ____________________</td>
+                    </tr>
+                    <tr>
+                        <td><b>Languages Known</b></td>
+                        <td>: English, Hindi</td>
+                    </tr>
+                    <tr>
+                        <td><b>Hobbies</b></td>
+                        <td>: Reading, Cricket, Music</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <!-- Row 7 : Declaration -->
+        <tr>
+            <td bgcolor="#F2F2F2"><b>DECLARATION</b></td>
+            <td>
+                I hereby declare that the information given above is true to the
+                best of my knowledge and belief.
+            </td>
+        </tr>
+
+        <!-- Row 8 : Place / Date and Signature -->
+        <tr>
+            <td bgcolor="#F2F2F2"><b>PLACE / DATE</b></td>
+            <td align="right">
+                Place : ____________<br><br>
+                Date&nbsp; : ____________<br><br>
+                <b>(YOUR NAME)</b>
+            </td>
+        </tr>
+
+    </table>
+
+</body>
+</html>

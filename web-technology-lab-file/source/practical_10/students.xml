@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- =========================================================
+     Practical 10 : XML program for the creation of a DTD which
+     specifies a set of rules.
+     Here the DTD is written INSIDE the XML file (internal DTD).
+     Every rule written below must be followed by the document,
+     otherwise the XML file is reported as "not valid".
+     ========================================================== -->
+
+<!DOCTYPE students [
+
+    <!-- RULE 1 : the root element <students> contains one or more <student> -->
+    <!ELEMENT students (student+)>
+
+    <!-- RULE 2 : each <student> must contain these child elements IN THIS ORDER.
+         "address" and "remarks" are optional because of the ? symbol. -->
+    <!ELEMENT student (name, rollno, course, semester, email, address?, remarks?)>
+
+    <!-- RULE 3 : every <student> must have an "id" attribute (ID type, REQUIRED) -->
+    <!ATTLIST student
+        id      ID      #REQUIRED
+        type    (regular | lateral)  "regular"
+        active  (yes | no)           #IMPLIED
+    >
+
+    <!-- RULE 4 : these elements contain only parsed text -->
+    <!ELEMENT name     (#PCDATA)>
+    <!ELEMENT rollno   (#PCDATA)>
+    <!ELEMENT course   (#PCDATA)>
+    <!ELEMENT semester (#PCDATA)>
+    <!ELEMENT email    (#PCDATA)>
+
+    <!-- RULE 5 : <address> is a container; its order is also fixed -->
+    <!ELEMENT address (city, state, pin)>
+    <!ELEMENT city (#PCDATA)>
+    <!ELEMENT state (#PCDATA)>
+    <!ELEMENT pin  (#PCDATA)>
+
+    <!-- RULE 6 : <remarks> may contain unparsed character data (CDATA) -->
+    <!ELEMENT remarks (#PCDATA | note)*>
+    <!ELEMENT note    (#PCDATA)>
+
+    <!-- RULE 7 : a text entity that can be reused anywhere in the document -->
+    <!ENTITY college "Name of the College">
+
+]>
+
+<!-- =================== THE ACTUAL DATA =================== -->
+<students>
+
+    <student id="S01" type="regular" active="yes">
+        <name>Student Name One</name>
+        <rollno>CSE2101</rollno>
+        <course>B.Tech (Computer Science &amp; Engineering)</course>
+        <semester>V</semester>
+        <email>student1@college.ac.in</email>
+        <address>
+            <city>Lucknow</city>
+            <state>Uttar Pradesh</state>
+            <pin>226001</pin>
+        </address>
+    </student>
+
+    <student id="S02" type="regular" active="yes">
+        <name>Student Name Two</name>
+        <rollno>CSE2102</rollno>
+        <course>B.Tech (Computer Science &amp; Engineering)</course>
+        <semester>V</semester>
+        <email>student2@college.ac.in</email>
+        <address>
+            <city>Kanpur</city>
+            <state>Uttar Pradesh</state>
+            <pin>208001</pin>
+        </address>
+    </student>
+
+    <student id="S03" type="lateral">
+        <name>Student Name Three</name>
+        <rollno>CSE2103</rollno>
+        <course>B.Tech (Information Technology)</course>
+        <semester>V</semester>
+        <email>student3@college.ac.in</email>
+        <!-- address is optional, so it is not given for this student -->
+        <remarks><![CDATA[ Lateral entry student. Marks & grades are pending. ]]></remarks>
+    </student>
+
+</students>

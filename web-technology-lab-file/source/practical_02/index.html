@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- Practical 2 : Home page creation using FRAMES -->
+<!-- A frameset page has NO <body> tag. It only divides the browser window. -->
+<html>
+<head>
+    <title>College Home Page - Frames</title>
+</head>
+
+<!-- Outer frameset : 1 banner row (15%) + 1 row for the inner frameset -->
+<frameset rows="15%, 85%" border="2" frameborder="1">
+
+    <!-- TOP FRAME : college banner -->
+    <frame src="banner.html" name="top" scrolling="no" noresize>
+
+    <!-- Inner frameset : left menu column (20%) + right content column (80%) -->
+    <frameset cols="20%, 80%">
+        <frame src="menu.html" name="menu" scrolling="auto" noresize>
+        <frame src="home.html" name="main" scrolling="auto">
+    </frameset>
+
+    <noframes>
+        <body>
+            Your browser does not support frames.
+            Please open <a href="home.html">home.html</a> directly.
+        </body>
+    </noframes>
+
+</frameset>
+</html>

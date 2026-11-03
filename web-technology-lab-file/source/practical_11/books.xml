@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The xml-stylesheet instruction connects this XML file with the
+     XSL style sheet. Without this line the browser shows the raw XML tree. -->
+<?xml-stylesheet type="text/xsl" href="books.xsl"?>
+
+<catalogue>
+    <book category="Programming">
+        <title lang="en">Web Technology</title>
+        <author>A. K. Sharma</author>
+        <year>2021</year>
+        <price>350</price>
+    </book>
+    <book category="Programming">
+        <title lang="en">Learning XML</title>
+        <author>Erik Ray</author>
+        <year>2005</year>
+        <price>290</price>
+    </book>
+    <book category="Database">
+        <title lang="en">SQL Complete Reference</title>
+        <author>R. K. Verma</author>
+        <year>2019</year>
+        <price>480</price>
+    </book>
+    <book category="Programming">
+        <title lang="en">JavaScript for Beginners</title>
+        <author>S. Gupta</author>
+        <year>2022</year>
+        <price>199</price>
+    </book>
+    <book category="Network">
+        <title lang="en">Computer Networks</title>
+        <author>P. Singh</author>
+        <year>2018</year>
+        <price>520</price>
+    </book>
+</catalogue>
