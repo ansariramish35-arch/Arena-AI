@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--
+    Practical 7 : A web page using ALL TYPES of CASCADING STYLE SHEETS.
+    CSS can be added to HTML in three ways :
+      1. INLINE     - style="..." inside a single tag
+      2. INTERNAL   - <style> block inside the <head> of the same page
+      3. EXTERNAL   - a separate .css file added with <link rel="stylesheet">
+    Keep external_style.css in the SAME folder as this file.
+-->
+<html>
+<head>
+    <title>All Types of Cascading Style Sheets</title>
+
+    <!-- ===== (3) EXTERNAL CSS : the file external_style.css ===== -->
+    <link rel="stylesheet" type="text/css" href="external_style.css">
+
+    <!-- ===== (2) INTERNAL (EMBEDDED) CSS ===== -->
+    <style type="text/css">
+        body {
+            background-color : #FFFDF5;
+            font-family      : "Times New Roman", serif;
+            margin           : 25px;
+        }
+        h2.internal {
+            color            : #0B6623;
+            background-color : #E8F5E9;
+            border-left      : 8px solid #0B6623;
+            padding          : 8px;
+            font-variant     : small-caps;
+        }
+        p.internal {
+            color       : #333333;
+            font-size   : 18px;
+            line-height : 1.6;
+            text-align  : justify;
+        }
+        table.internal {
+            border-collapse : collapse;
+            width           : 80%;
+        }
+        table.internal th, table.internal td {
+            border  : 1px solid #0B6623;
+            padding : 6px 10px;
+        }
+        table.internal th { background-color : #C8E6C9; }
+        table.internal tr:nth-child(even) { background-color : #F1F8E9; }
+    </style>
+</head>
+
+<body>
+
+    <!-- Heading styled by the EXTERNAL style sheet -->
+    <h1 class="page-title">THREE TYPES OF CASCADING STYLE SHEETS</h1>
+
+    <!-- ================================================ -->
+    <!-- (1) INLINE CSS : style written inside the tag     -->
+    <!-- ================================================ -->
+    <h2 style="color:#FFFFFF; background-color:#990000; padding:8px;
+               text-align:center; font-family:Verdana;">
+        1. INLINE STYLE SHEET
+    </h2>
+
+    <p style="color:#990000; font-size:18px; font-weight:bold;">
+        This paragraph is styled with the <i>style</i> attribute written directly
+        inside the tag. Inline CSS has the highest priority.
+    </p>
+
+    <p style="background-color:#FFEBEE; border:2px dashed #990000;
+              padding:10px; font-style:italic; letter-spacing:1px;">
+        Inline CSS is used to style only ONE single element.
+    </p>
+
+    <!-- ================================================ -->
+    <!-- (2) INTERNAL / EMBEDDED CSS : <style> in <head>   -->
+    <!-- ================================================ -->
+    <h2 class="internal">2. INTERNAL (EMBEDDED) STYLE SHEET</h2>
+
+    <p class="internal">
+        This paragraph and the heading above are styled by the
+        &lt;style&gt; block written inside the &lt;head&gt; section of this
+        same page. Internal CSS applies to the whole page.
+    </p>
+
+    <table class="internal">
+        <tr><th>Type of CSS</th><th>Where it is written</th><th>Applies to</th></tr>
+        <tr><td>Inline</td><td>style attribute of the tag</td><td>One element</td></tr>
+        <tr><td>Internal</td><td>&lt;style&gt; block in &lt;head&gt;</td><td>One page</td></tr>
+        <tr><td>External</td><td>separate .css file + &lt;link&gt;</td><td>Many pages</td></tr>
+    </table>
+
+    <!-- ================================================ -->
+    <!-- (3) EXTERNAL CSS : external_style.css             -->
+    <!-- ================================================ -->
+    <h2 class="external">3. EXTERNAL STYLE SHEET</h2>
+
+    <p class="external">
+        This heading and paragraph are styled by the separate file
+        <b>external_style.css</b>, which is attached to this page with the
+        &lt;link&gt; tag. The same file can be attached to any number of pages
+        of a website, so the design stays common everywhere.
+    </p>
+
+    <div class="box">
+        This DIV also uses the external style sheet (class = "box").
+    </div>
+
+</body>
+</html>

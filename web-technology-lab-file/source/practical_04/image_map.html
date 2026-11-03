@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- Practical 4 : Embed an IMAGE MAP in a web page -->
+<!--
+    An image map = one image + several clickable regions.
+    <img usemap="#shapemap"> connects the image with the <map name="shapemap">.
+    Each <area> defines one clickable region (rect / circle / poly).
+    Keep shapes.png in the SAME folder as this file.
+-->
+<html>
+<head>
+    <title>HTML Image Map</title>
+    <style>
+        body  { font-family:"Times New Roman"; text-align:center; margin:20px; }
+        h2    { color:#1F4E79; }
+        table { margin:10px auto; border-collapse:collapse; }
+        th,td { border:1px solid #000000; padding:5px 12px; font-size:14px; }
+        th    { background-color:#D9E1F2; }
+    </style>
+</head>
+
+<body>
+
+    <h2>IMAGE MAP : Click on a Shape</h2>
+
+    <!-- STEP 1 : embed the image and connect it to the map using usemap -->
+    <img src="shapes.png" width="520" height="320"
+         alt="Three shapes" border="0" usemap="#shapemap">
+
+    <!-- STEP 2 : define the map and its clickable areas (hot spots) -->
+    <map name="shapemap">
+
+        <!-- RECTANGULAR hot spot  -> opens rectangle.html -->
+        <area shape="rect"
+              coords="20,90,180,250"
+              href="rectangle.html"
+              alt="Rectangle"
+              title="Rectangle - 4 sides, all angles 90 degrees">
+
+        <!-- CIRCULAR hot spot     -> opens circle.html -->
+        <area shape="circle"
+              coords="265,170,80"
+              href="circle.html"
+              alt="Circle"
+              title="Circle - all points at equal distance from centre">
+
+        <!-- POLYGON (triangle) hot spot -> opens triangle.html -->
+        <area shape="poly"
+              coords="430,90,510,250,350,250"
+              href="triangle.html"
+              alt="Triangle"
+              title="Triangle - 3 sides, 3 corners">
+
+        <!-- default area : clicked anywhere else -->
+        <area shape="default" nohref alt="No link">
+    </map>
+
+    <h3>Coordinates used in this image map</h3>
+    <table>
+        <tr>
+            <th>Shape</th><th>shape attribute</th><th>coords attribute</th>
+        </tr>
+        <tr>
+            <td>Rectangle</td><td>rect</td><td>left,top,right,bottom = 20,90,180,250</td>
+        </tr>
+        <tr>
+            <td>Circle</td><td>circle</td><td>centre-x,centre-y,radius = 265,170,80</td>
+        </tr>
+        <tr>
+            <td>Triangle</td><td>poly</td><td>x1,y1,x2,y2,x3,y3 = 430,90,510,250,350,250</td>
+        </tr>
+    </table>
+
+</body>
+</html>

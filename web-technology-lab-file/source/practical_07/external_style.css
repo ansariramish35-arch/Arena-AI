@@ -1,0 +1,57 @@
+/* ==============================================================
+   Practical 7 : EXTERNAL STYLE SHEET  ( external_style.css )
+   This file is attached to the HTML page with :
+   <link rel="stylesheet" type="text/css" href="external_style.css">
+   ============================================================== */
+
+/* ---- element selector ---- */
+body {
+    background-color : #FFFDF5;
+}
+
+/* ---- class selector ---- */
+.page-title {
+    color            : #1F4E79;
+    font-family      : Verdana, Arial, sans-serif;
+    text-align       : center;
+    letter-spacing   : 2px;
+    border-bottom    : 3px double #1F4E79;
+    padding-bottom   : 8px;
+}
+
+h2.external {
+    color            : #1F4E79;
+    background-color : #D9E1F2;
+    border           : 2px solid #1F4E79;
+    padding          : 8px;
+    text-align       : center;
+    font-family      : Verdana, Arial, sans-serif;
+}
+
+p.external {
+    color       : #191970;
+    font-size   : 18px;
+    font-style  : italic;
+    text-align  : justify;
+    text-indent : 30px;
+    line-height : 1.6;
+}
+
+/* ---- class selector for a box ---- */
+.box {
+    background-color : #EAF1FA;
+    border           : 2px groove #1F4E79;
+    border-radius    : 8px;
+    padding          : 12px;
+    margin-top       : 15px;
+    font-size        : 17px;
+    color            : #1F4E79;
+    text-align       : center;
+}
+
+/* ---- id selector ---- */
+#footer {
+    color      : #666666;
+    font-size  : 13px;
+    text-align : center;
+}

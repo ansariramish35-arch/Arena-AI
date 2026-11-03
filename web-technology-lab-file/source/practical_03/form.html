@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!-- Practical 3 : HTML program for FORM creation -->
+<!-- Demonstrates every common form control / input type -->
+<html>
+<head>
+    <title>Student Registration Form</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h2 align="center">STUDENT REGISTRATION FORM</h2>
+
+<form name="regForm" action="submit.php" method="post" enctype="multipart/form-data">
+
+    <!-- ================= FIELDSET 1 : PERSONAL DETAILS ================= -->
+    <fieldset>
+        <legend><b>Personal Details</b></legend>
+
+        <table cellpadding="6">
+            <tr>
+                <td><label for="fname">Full Name :</label></td>
+                <td><input type="text" id="fname" name="fname" size="30"
+                           maxlength="40" placeholder="Enter your full name" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="pwd">Password :</label></td>
+                <td><input type="password" id="pwd" name="pwd" size="30" required></td>
+            </tr>
+
+            <tr>
+                <td>Gender :</td>
+                <td>
+                    <input type="radio" name="gender" value="male" checked> Male
+                    <input type="radio" name="gender" value="female"> Female
+                    <input type="radio" name="gender" value="other"> Other
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="dob">Date of Birth :</label></td>
+                <td><input type="date" id="dob" name="dob"></td>
+            </tr>
+
+            <tr>
+                <td><label for="email">E-Mail :</label></td>
+                <td><input type="email" id="email" name="email" size="30"
+                           placeholder="name@email.com"></td>
+            </tr>
+
+            <tr>
+                <td><label for="mob">Mobile No. :</label></td>
+                <td><input type="tel" id="mob" name="mob" size="30"
+                           pattern="[0-9]{10}" placeholder="10 digit number"></td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <br>
+
+    <!-- ================= FIELDSET 2 : ACADEMIC DETAILS ================= -->
+    <fieldset>
+        <legend><b>Academic Details</b></legend>
+
+        <table cellpadding="6">
+            <tr>
+                <td><label for="course">Course :</label></td>
+                <td>
+                    <select id="course" name="course">
+                        <option value="">-- Select Course --</option>
+                        <option value="btech_cse" selected>B.Tech (CSE)</option>
+                        <option value="btech_it">B.Tech (IT)</option>
+                        <option value="mca">MCA</option>
+                        <option value="mtech">M.Tech</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="sem">Semester :</label></td>
+                <td>
+                    <select id="sem" name="sem" size="1">
+                        <option>I</option><option>II</option><option>III</option>
+                        <option>IV</option><option>V</option><option>VI</option>
+                        <option>VII</option><option>VIII</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Hobbies :</td>
+                <td>
+                    <input type="checkbox" name="hobby" value="reading"> Reading
+                    <input type="checkbox" name="hobby" value="sports"> Sports
+                    <input type="checkbox" name="hobby" value="music"> Music
+                    <input type="checkbox" name="hobby" value="coding"> Coding
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="addr">Address :</label></td>
+                <td>
+                    <textarea id="addr" name="addr" rows="4" cols="35"
+                              placeholder="Enter your complete address"></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="photo">Upload Photo :</label></td>
+                <td><input type="file" id="photo" name="photo" accept="image/*"></td>
+            </tr>
+
+            <tr>
+                <td><label for="marks">Marks Obtained :</label></td>
+                <td>
+                    <input type="number" id="marks" name="marks" min="0" max="100" step="1">
+                    &nbsp;&nbsp;
+                    <label for="percent">Percentage :</label>
+                    <input type="range" id="percent" name="percent" min="0" max="100" value="60">
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="color">Favourite Colour :</label></td>
+                <td><input type="color" id="color" name="color" value="#1F4E79"></td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <br>
+
+    <!-- Hidden field and the three buttons -->
+    <input type="hidden" name="formid" value="REG2025">
+
+    <p align="center">
+        <input type="submit" value="Submit Form">
+        &nbsp;&nbsp;
+        <input type="reset" value="Reset Form">
+        &nbsp;&nbsp;
+        <input type="button" value="Cancel" onclick="window.close()">
+    </p>
+
+</form>
+
+</body>
+</html>

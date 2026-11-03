@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--
+    Practical 6 : Get the COORDINATES from an image using JavaScript.
+    The mouse event object gives the position of the pointer.
+      e.offsetX / e.offsetY  -> coordinates INSIDE the image  (most useful)
+      e.clientX / e.clientY  -> coordinates inside the browser window
+      e.pageX  / e.pageY     -> coordinates inside the whole page
+    Keep grid.png in the SAME folder as this file.
+-->
+<html>
+<head>
+    <title>Get Image Coordinates using JavaScript</title>
+    <style>
+        body   { font-family:"Times New Roman"; margin:20px; }
+        h2     { color:#1F4E79; text-align:center; }
+        .box   { text-align:center; }
+        img    { border:2px solid #1F4E79; cursor:crosshair; }
+        table  { margin:12px auto; border-collapse:collapse; }
+        th,td  { border:1px solid #000000; padding:6px 14px; font-size:15px; }
+        th     { background-color:#D9E1F2; }
+        input  { font-family:"Courier New"; font-size:15px; text-align:center; }
+        #msg   { text-align:center; font-size:16px; color:#990000; margin-top:8px; }
+    </style>
+</head>
+
+<body>
+
+    <h2>GET COORDINATES FROM AN IMAGE USING JAVASCRIPT</h2>
+    <p align="center">Move the mouse over the image or <b>click</b> anywhere on it.
+       The X and Y coordinates are shown below.</p>
+
+    <div class="box">
+        <img id="myImg" src="grid.png" width="500" height="300" alt="Grid image"
+             onclick="getClick(event)" onmousemove="getMove(event)">
+    </div>
+
+    <div id="msg">Coordinates will appear here...</div>
+
+    <table>
+        <tr>
+            <th>Event</th><th>X coordinate</th><th>Y coordinate</th>
+        </tr>
+        <tr>
+            <td><b>Mouse Move</b> (offset)</td>
+            <td><input type="text" id="mx" size="8" value="0" readonly></td>
+            <td><input type="text" id="my" size="8" value="0" readonly></td>
+        </tr>
+        <tr>
+            <td><b>Mouse Click</b> (offset)</td>
+            <td><input type="text" id="cx" size="8" value="0" readonly></td>
+            <td><input type="text" id="cy" size="8" value="0" readonly></td>
+        </tr>
+        <tr>
+            <td><b>Mouse Click</b> (client - window)</td>
+            <td><input type="text" id="clx" size="8" value="0" readonly></td>
+            <td><input type="text" id="cly" size="8" value="0" readonly></td>
+        </tr>
+        <tr>
+            <td><b>Mouse Click</b> (page - document)</td>
+            <td><input type="text" id="pgx" size="8" value="0" readonly></td>
+            <td><input type="text" id="pgy" size="8" value="0" readonly></td>
+        </tr>
+    </table>
+
+    <script>
+        /* --------- coordinates while the mouse is MOVING --------- */
+        function getMove(e) {
+            document.getElementById("mx").value = e.offsetX;
+            document.getElementById("my").value = e.offsetY;
+            document.getElementById("msg").innerHTML =
+                "Mouse is at  X = " + e.offsetX + " ,  Y = " + e.offsetY;
+        }
+
+        /* --------- coordinates when the mouse is CLICKED --------- */
+        function getClick(e) {
+            var img = document.getElementById("myImg");
+
+            document.getElementById("cx").value  = e.offsetX;
+            document.getElementById("cy").value  = e.offsetY;
+            document.getElementById("clx").value = e.clientX;
+            document.getElementById("cly").value = e.clientY;
+            document.getElementById("pgx").value = e.pageX;
+            document.getElementById("pgy").value = e.pageY;
+
+            document.getElementById("msg").innerHTML =
+                "CLICKED at  X = " + e.offsetX + " ,  Y = " + e.offsetY +
+                " &nbsp;( image size = " + img.naturalWidth + " x " +
+                img.naturalHeight + " pixels )";
+
+            /* Optional : convert the displayed coordinates into the ORIGINAL
+               pixel coordinates of the image (needed when the image is
+               shown at a size different from its real size)                */
+            var scaleX = img.naturalWidth  / img.width;
+            var scaleY = img.naturalHeight / img.height;
+            var realX  = Math.round(e.offsetX * scaleX);
+            var realY  = Math.round(e.offsetY * scaleY);
+            window.status = "Original image coordinates : " + realX + "," + realY;
+        }
+    </script>
+
+</body>
+</html>
