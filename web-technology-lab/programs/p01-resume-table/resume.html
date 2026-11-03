@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resume - Table Layout</title>
+  <style>
+    body { font-family: "Times New Roman", serif; }
+    table.outer { border-collapse: collapse; width: 100%; }
+    table.outer td { border: 1px solid black; padding: 6px; }
+    table.data { border-collapse: collapse; width: 100%; }
+    table.data th, table.data td {
+      border: 1px solid black; padding: 4px; text-align: left;
+    }
+    h2 { margin: 8px 0 4px 0; font-size: 16px; }
+  </style>
+</head>
+<body>
+
+  <!-- Resume built entirely with tables -->
+  <table class="outer">
+    <tr>
+      <td style="width:130px; text-align:center;">
+        <img src="photo.jpg" alt="Photo" width="110" height="130">
+      </td>
+      <td>
+        <h1 style="margin:0;">Ananya Sharma</h1>
+        <p style="margin:4px 0;">
+          B.Tech Computer Science &amp; Engineering<br>
+          Address: ______________, Lucknow, Uttar Pradesh<br>
+          Phone: **********  &nbsp; Email: ______________@mail.com
+        </p>
+      </td>
+    </tr>
+  </table>
+
+  <h2>Career Objective</h2>
+  <p>To work in a challenging environment where I can apply my
+     knowledge of web technologies and contribute to the growth
+     of the organization.</p>
+
+  <h2>Educational Qualification</h2>
+  <table class="data">
+    <tr><th>Qualification</th><th>Board/University</th>
+        <th>Year</th><th>Percentage</th></tr>
+    <tr><td>B.Tech CSE</td><td>____________ University</td>
+        <td>20XX</td><td>__%</td></tr>
+    <tr><td>Class XII</td><td>CBSE</td><td>20XX</td><td>__%</td></tr>
+    <tr><td>Class X</td><td>CBSE</td><td>20XX</td><td>__%</td></tr>
+  </table>
+
+  <h2>Technical Skills</h2>
+  <table class="data">
+    <tr><th>Area</th><th>Skills</th></tr>
+    <tr><td>Languages</td><td>C, C++, Java, Python</td></tr>
+    <tr><td>Web</td><td>HTML, CSS, JavaScript, XML</td></tr>
+    <tr><td>Database</td><td>MySQL</td></tr>
+  </table>
+
+  <h2>Declaration</h2>
+  <p>I hereby declare that the above information is true to the
+     best of my knowledge.</p>
+  <p style="text-align:right;">Signature: ____________</p>
+
+</body>
+</html>

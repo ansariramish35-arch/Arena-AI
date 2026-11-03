@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hot Spots on an Image</title>
+  <script>
+    // Show the related information when a hot spot is clicked.
+    function showInfo(title, info) {
+      var box = document.getElementById("info");
+      box.innerHTML = "<b>" + title + "</b><br>" + info;
+      box.style.display = "block";
+    }
+  </script>
+  <style>
+    #info {
+      display: none; margin-top: 12px; padding: 10px; width: 580px;
+      border: 2px solid #1f3864; background: #eef3f8;
+    }
+  </style>
+</head>
+<body>
+  <h2>Campus Map - Hot Spots</h2>
+  <p>Click a hot spot on the map to see its details below:</p>
+
+  <img src="campus-map.jpg" alt="Campus map" width="600" height="400"
+       usemap="#hotspots">
+
+  <map name="hotspots">
+    <area shape="rect" coords="20,40,180,160" href="#"
+      onclick="showInfo('Library',
+        'Central library: 10,000+ books, reading halls, Wi-Fi.');
+        return false;">
+    <area shape="rect" coords="200,40,380,160" href="#"
+      onclick="showInfo('Computer Labs',
+        'Three labs with 120 systems for CSE students.');
+        return false;">
+    <area shape="rect" coords="400,40,580,160" href="#"
+      onclick="showInfo('Canteen',
+        'Canteen serves breakfast, lunch and snacks.');
+        return false;">
+    <area shape="rect" coords="20,180,290,300" href="#"
+      onclick="showInfo('Auditorium',
+        '500-seat auditorium for seminars and functions.');
+        return false;">
+    <area shape="rect" coords="310,180,580,300" href="#"
+      onclick="showInfo('Sports Ground',
+        'Ground for cricket, football and athletics.');
+        return false;">
+  </map>
+
+  <div id="info"></div>
+</body>
+</html>

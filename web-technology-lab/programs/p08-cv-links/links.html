@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Links - CV, Institute, Department, Tutorial</title>
+  <script>
+    // Open each website in the browser (navigator) using JavaScript.
+    function openPage(url) {
+      window.open(url, "_blank");
+    }
+    function openCV()        { openPage("cv.html"); }
+    function openInstitute() {
+      // Replace with your own institute website.
+      openPage("https://www.example.edu");
+    }
+    function openDepartment() {
+      // Replace with your own department website.
+      openPage("https://www.example.edu/cse");
+    }
+    function openTutorial()  {
+      openPage("https://www.w3schools.com/html/");
+    }
+  </script>
+</head>
+<body style="font-family:Arial; text-align:center;">
+  <h2>Quick Links</h2>
+  <p>Click a button to open the page in the browser:</p>
+  <p><button onclick="openCV()">My CV</button></p>
+  <p><button onclick="openInstitute()">Institute Website</button></p>
+  <p><button onclick="openDepartment()">Department Website</button></p>
+  <p><button onclick="openTutorial()">
+        Tutorial Website (HTML - W3Schools)</button></p>
+</body>
+</html>

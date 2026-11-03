@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Types of CSS</title>
+
+  <!-- (3) EXTERNAL CSS: rules kept in a separate .css file -->
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
+  <!-- (2) INTERNAL / EMBEDDED CSS: rules inside the <head> -->
+  <style type="text/css">
+    h2.internal {
+      color: #ffffff;
+      background-color: #b03a2e;
+      padding: 8px;
+    }
+    p.internal {
+      color: #b03a2e;
+      font-style: italic;
+      border: 2px solid #b03a2e;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center;">Three Ways of Using CSS</h1>
+
+  <!-- (1) INLINE CSS: style attribute on the element itself -->
+  <h2 class="inline" style="color:#ffffff; background-color:#1f3864;
+     padding:8px;">
+    1. Inline CSS (style attribute)
+  </h2>
+  <p style="color:#1f3864; border:2px solid #1f3864; padding:8px;">
+    This paragraph is styled with an inline <b>style</b> attribute.
+  </p>
+
+  <!-- (2) INTERNAL CSS -->
+  <h2 class="internal">2. Internal CSS (&lt;style&gt; in head)</h2>
+  <p class="internal">
+    This paragraph is styled by the internal style sheet.
+  </p>
+
+  <!-- (3) EXTERNAL CSS -->
+  <h2 class="external">3. External CSS (styles.css file)</h2>
+  <p class="external">
+    This paragraph is styled by the external style sheet.
+  </p>
+</body>
+</html>

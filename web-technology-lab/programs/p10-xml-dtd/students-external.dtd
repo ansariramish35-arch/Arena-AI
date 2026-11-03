@@ -1,0 +1,11 @@
+<!-- External DTD: the same rules kept in a separate .dtd file.
+     students-external.xml references it with:
+     <!DOCTYPE students SYSTEM "students-external.dtd"> -->
+
+<!ELEMENT students (student+)>
+<!ELEMENT student (name, roll, course, marks)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT roll (#PCDATA)>
+<!ELEMENT course (#PCDATA)>
+<!ELEMENT marks (#PCDATA)>
+<!ATTLIST student id CDATA #REQUIRED>
