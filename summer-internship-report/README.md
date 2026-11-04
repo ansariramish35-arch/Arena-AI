@@ -6,8 +6,9 @@ Deliverables (report root):
 |---|---|
 | `B.Tech_CSE_Summer_Internship_Report_SwachhAI.docx` | Editable Word edition (live TOC field, bookmarks, internal + external links, embedded certificates) |
 | `B.Tech_CSE_Summer_Internship_Report_SwachhAI.pdf` | Print-ready PDF, A4, 60 pages, single-sided for spiral binding, clickable TOC / bookmarks / cross-references |
+| `SwachhAI_Project_Presentation.pptx` | Editable, 22-slide project deck following the IBM University Engagement presentation structure; includes architecture, workflow, labelled simulation, evidence limits and certificates |
 | `images/` | All 21 conceptual diagrams and 2 clearly-labelled illustrative mock-ups (300 dpi PNG) |
-| `certificates/` | Colour copies of the completion certificate and the two IBM SkillsBuild certificates |
+| `certificates/` | Colour copies of the completion certificate and IBM SkillsBuild certificates used in the report and deck |
 
 ## Rebuilding
 
@@ -16,9 +17,10 @@ cd build
 python3 figures.py        # redraw every diagram into ../images
 python3 render_pdf.py     # build the PDF
 python3 render_docx.py    # build the DOCX
+python3 build_presentation.py  # build the editable PPTX (requires python-pptx)
 ```
 
-Requirements: `reportlab`, `pymupdf`, `python-docx`, `pillow`.
+Requirements: `reportlab`, `pymupdf`, `python-docx`, `pillow`; add `python-pptx` to build the presentation.
 
 ## How it is put together
 
@@ -43,5 +45,8 @@ Requirements: `reportlab`, `pymupdf`, `python-docx`, `pillow`.
 * No working software: the project is documented through architecture, workflow, module tables,
   worked examples and labelled mock-ups. No test results, accuracy figures or user feedback are
   claimed anywhere.
+* The presentation labels the simulation, impact figures and stack as conceptual; it does not
+  invent a token count or public GitHub/app URL. An initials monogram is used because no portrait
+  photo was present in the supplied résumés.
 * Confidential material from the offer letter (course content, session content, contact details)
   is not reproduced.
