@@ -7,7 +7,7 @@ A separate **55-page theory-only report** is available in two formats:
 
 The PDF contains a prescribed-style cover with the supplied University emblem, a declaration, the supplied **colour completion certificate**, abstract, acknowledgement, contents, lists of tables and figures, 44 numbered main pages, references and two appendices. Its preliminary pages use Roman numerals and its main pages use Arabic numerals. The PDF embeds Tinos, a Times-compatible typeface; the editable DOCX requests Times New Roman.
 
-This is an academic explanation of Python 3 output, not a working model. The one-line `print("Hello, World!")` statement is **illustrative syntax**; expected text, planned checks and flow diagrams are never presented as actual test results or screenshots. The bar chart is a manually checkable count of the greeting's 13 visible characters (10 letters, 2 punctuation marks, 1 space).
+This is an academic explanation of Python 3 output, not a working model. The one-line `print("Hello, World!")` statement is **illustrative syntax**; expected text, planned checks and flow diagrams are never presented as actual test results or screenshots. Each of the 44 main pages now has additional page-specific explanation. The report includes 37 labelled figures, including conceptual process diagrams and manually derived graphs of character categories, letter frequencies and greeting lengths. The visible greeting has 13 characters (10 letters, 2 punctuation marks, 1 space).
 
 ## Before submission
 
@@ -16,4 +16,4 @@ This is an academic explanation of Python 3 output, not a working model. The one
 3. Ask whether a separate academic study is acceptable: the certificate does not establish that Hello World was the company's assigned project.
 4. Check pagination after editing the DOCX; its manual contents list is aligned with the 55-page PDF, and word processors can reflow pages. Print single-sided, the certificate in colour, then spiral-bind.
 
-`hello_world_content.py` contains the subject matter; `generate_hello_world_report.py` creates the PDF and DOCX using the student-uploaded cover format and certificate currently located under `/tmp/arena-coding-uploads/`. The private original uploads are intentionally not copied into the Git repository. Regeneration requires `reportlab`, `python-docx` and `pymupdf`.
+`hello_world_content.py`, `hello_world_expansion.py` and `hello_world_deepdives.py` contain the prose. `hello_world_diagrams.py` creates the illustrations; `generate_hello_world_report.py` builds the PDF and DOCX using the student-uploaded cover format and certificate currently located under `/tmp/arena-coding-uploads/`. The private original uploads are intentionally not copied into the Git repository. Regeneration requires `reportlab`, `python-docx`, `pymupdf` and `Pillow`.

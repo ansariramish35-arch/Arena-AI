@@ -238,6 +238,25 @@ page('Conclusion', [
 ], caption='End of the main theory-only study.')
 
 assert len(pages)==44, len(pages)
+from hello_world_expansion import EXPANSIONS, VISUALS
+from hello_world_deepdives import DEEPDIVES
+
+# Add substantive, topic-specific analysis to every page. New figures are
+# labelled in reading order alongside the earlier conceptual flowcharts.
+figure_number = 0
+for number, item in enumerate(pages, start=1):
+    item['paras'].extend(EXPANSIONS[number-1])
+    if number in DEEPDIVES:
+        item['paras'].append(DEEPDIVES[number])
+    item['visual'] = VISUALS.get(number)
+    if item['flow'] or item['fig']:
+        figure_number += 1
+        item['note'] = f"Figure {figure_number}. " + item['note'].split('. ', 1)[1]
+    if item['visual']:
+        figure_number += 1
+        item['visual_caption'] = f"Figure {figure_number}. " + item['visual'][1] + ' (conceptual or manually derived).'
+    else:
+        item['visual_caption'] = None
 refs=[
     'Python Software Foundation. “The Python Tutorial.” https://docs.python.org/3/tutorial/ (student should add actual access date).',
     'Python Software Foundation. “Built-in Functions: print.” https://docs.python.org/3/library/functions.html#print (student should add actual access date).',

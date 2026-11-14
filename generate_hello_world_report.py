@@ -5,6 +5,8 @@ Source certificate and cover-template PDFs remain in the user's upload folder.
 """
 from pathlib import Path
 import math
+import tempfile
+import shutil
 import pymupdf
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
@@ -35,6 +37,14 @@ M = 64
 BODY_W = W - 2*M
 
 from hello_world_content import pages, refs
+from hello_world_diagrams import build as build_diagram
+
+# Render the same explanatory diagrams for both the PDF and editable DOCX.
+visual_directory = Path(tempfile.mkdtemp(prefix='hello-world-visuals-'))
+visual_paths = {}
+for number, study_page in enumerate(pages, start=1):
+    if study_page['visual']:
+        visual_paths[number] = build_diagram(study_page['visual'], visual_directory / f'{number:02d}.png')
 
 # ---------- PDF rendering ----------
 from reportlab.pdfbase import pdfmetrics
@@ -156,6 +166,11 @@ def render_main(c, d, number):
     if d['flow']: y=draw_flow(c,d['flow'],y-7)
     if d['fig']: y=draw_chart(c,y-5)
     if d['note']: y=para(c,d['note'],y-3,note=True)
+    if d['visual']:
+        visual_height = BODY_W*360/1320
+        y -= visual_height+6
+        c.drawImage(str(visual_paths[number]),M,y,width=BODY_W,height=visual_height)
+        y=para(c,d['visual_caption'],y-4,note=True)
     if y<71: raise RuntimeError(f"Page {number} overflows: y={y:.1f} {d['title']}")
     c.showPage()
 
@@ -251,8 +266,11 @@ prelim_footer(c,6); c.showPage()
 c.setFont('TNR-B',12); c.drawCentredString(W/2,H-75,'LIST OF FIGURES')
 y=H-108
 for i,p in enumerate(pages,1):
-    if p['flow'] or p['fig']:
-        c.setFont('TNR',10); c.drawString(M,y,p['note'][:85]); c.drawRightString(W-M,y,str(i)); y-=25
+    captions = ([p['note']] if p['flow'] or p['fig'] else [])
+    if p['visual_caption']: captions.append(p['visual_caption'])
+    for label in captions:
+        if y<63: raise RuntimeError('List of figures overflow')
+        c.setFont('TNR',9); c.drawString(M,y,label[:88]); c.drawRightString(W-M,y,str(i)); y-=16
 prelim_footer(c,7); c.showPage()
 for i,p in enumerate(pages,1): render_main(c,p,i)
 # References follow the 44 main study pages.
@@ -291,7 +309,7 @@ styles=doc.styles
 for name in ['Normal','Title','Heading 1']:
     st=styles[name]; st.font.name='Times New Roman'; st.font.size=Pt(12)
     st.paragraph_format.line_spacing=1.0
-    st.paragraph_format.space_after=Pt(7)
+    st.paragraph_format.space_after=Pt(5)
 styles['Heading 1'].font.bold=True
 styles['Heading 1'].paragraph_format.space_before=Pt(0)
 styles['Title'].font.bold=True
@@ -351,7 +369,12 @@ for i,p in enumerate(pages,1):
     if p['table']:addp(f"{p['note']}  ..........  {i}")
 breakpage();addp('LIST OF FIGURES',center=True,bold=True)
 for i,p in enumerate(pages,1):
-    if p['flow'] or p['fig']:addp(f"{p['note']}  ..........  {i}")
+    captions = ([p['note']] if p['flow'] or p['fig'] else [])
+    if p['visual_caption']: captions.append(p['visual_caption'])
+    for label in captions:
+        item=addp(f'{label}  ..........  {i}')
+        item.paragraph_format.space_after=Pt(0)
+        for run in item.runs: run.font.size=Pt(9)
 main_section=doc.add_section(WD_SECTION_START.NEW_PAGE)
 main_section.footer.is_linked_to_previous=False
 main_section.footer.paragraphs[0].alignment=WD_ALIGN_PARAGRAPH.CENTER
@@ -379,6 +402,11 @@ for i,d in enumerate(pages,1):
         p.add_run().add_picture(str(chart_img),width=Inches(5.9))
         pdf_view.close()
     if d['note']: addp(d['note'],italic=True)
+    if d['visual']:
+        paragraph=doc.add_paragraph()
+        paragraph.alignment=WD_ALIGN_PARAGRAPH.CENTER
+        paragraph.add_run().add_picture(str(visual_paths[i]),width=Inches(5.8))
+        addp(d['visual_caption'],italic=True)
     breakpage()
 addp('REFERENCES',bold=True)
 for j,r in enumerate(refs,1):addp(f'{j}. {r}')
@@ -391,4 +419,5 @@ for s in ['Fill roll number, section, date and signature.','Check acceptance of 
 doc.save(OUT/'Hello_World_Python_Internship_Report.docx')
 for temporary_image in (cert_img, logo_img, OUT/'illustrative_chart.png'):
     temporary_image.unlink(missing_ok=True)
+shutil.rmtree(visual_directory)
 print(f'Created {pdf_path} and DOCX; main pages={len(pages)} total PDF pages={8+len(pages)+3}')
